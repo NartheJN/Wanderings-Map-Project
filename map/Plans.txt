@@ -1,0 +1,5 @@
+3 - no names except for continent
+4 - remove city names, make nation names bigger/clearer
+5 - Done
+6 - Done
+7 - Remove nation names, add city/town names

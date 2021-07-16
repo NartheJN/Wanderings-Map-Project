@@ -78,17 +78,25 @@
     <div id="map" class="sidebar-map" style="width: 100%; height: 100%; background: #1a285b;"></div>
       <script src="scripts/js/leaflet-sidebar.js"></script>
       <script type="text/javascript">
+
+        //border co-ords
+        var corner1 = L.latLng(-150, -250),
+            corner2 = L.latLng(150, 250),
+            bounds = L.latLngBounds(corner1, corner2);
+
        //Creating the Map
-          var map = L.map('map').setView([0, 0], 0);
-          L.tileLayer('map/{z}/{x}/{y}.png', {
-           continuousWorld: false,
-           noWrap: true,  
-            minZoom: 3,
-             maxZoom: 7,
+          var map = L.map('map').setView([0, 0], 0).setMaxBounds(bounds);
+            L.tileLayer('map/{z}/{x}/{y}.png', {
+              continuousWorld: false,
+              noWrap: true,  
+              minZoom: 3,
+              maxZoom: 7,
         	  edgeBufferTiles: 2,
-            }).addTo(map);
+              doubleClickZoom: true,
+        }).addTo(map);
+
           //Coordinate Finder
-           var marker = L.marker([0, 0], {
+        var marker = L.marker([35, -85], {
              draggable: true,
            }).addTo(map);
         	var sidebar = L.control.sidebar('sidebar').addTo(map);
